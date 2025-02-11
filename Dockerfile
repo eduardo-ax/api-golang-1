@@ -1,4 +1,5 @@
-FROM golang:1.23-alpine as builder
+# Primeiro estágio (builder)
+FROM golang:1.23-alpine AS builder
 
 WORKDIR /app
 
@@ -6,11 +7,13 @@ COPY go.mod go.sum ./
 RUN go mod download && go mod verify
 
 COPY . .
-
-RUN build -v -o rest_api
+ 
+RUN go build -v -o api-golang-1 ./cmd/api-golang-1
 
 FROM alpine
 
-COPY --from=builder /app/rest_api /
+WORKDIR /app
 
-ENTRYPOINT [ "/rest_api" ]
+COPY --from=builder /app/api-golang-1 /app/api-golang-1
+
+ENTRYPOINT ["./api-golang-1"]

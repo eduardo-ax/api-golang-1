@@ -27,7 +27,7 @@ func main() {
 
 		c.JSON(http.StatusOK, gin.H{
 			"message": "Data received!",
-			"dados":   data,
+			"data":    data,
 		})
 	})
 
