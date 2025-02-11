@@ -6,11 +6,7 @@ func Initialize() {
 
 	router := gin.Default()
 
-	router.GET("/user", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "Added",
-		})
-	})
+	InitializeRoutes(router)
 
 	router.Run(":8080")
 }
