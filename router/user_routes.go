@@ -1,7 +1,7 @@
 package router
 
 import (
-	handler "github.com/eduardo-ax/api-golang-1/handle"
+	handler "github.com/eduardo-ax/api-golang-1/handler/user_handler"
 	"github.com/gin-gonic/gin"
 )
 
